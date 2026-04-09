@@ -5,174 +5,75 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { Github, ExternalLink, Mail, Linkedin, Code, Palette, Globe, Database, Server, Smartphone } from "lucide-react"
+import { Github, ExternalLink, Mail, Linkedin, Code, Palette, Globe, Database, Server, Smartphone, Filter, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { projects, type ProjectCategory } from "@/lib/projects"
 
 export default function Component() {
-  const projects = [
-  {
-      title: "Pablo Ezeta - Blog de buceo",
-      description:
-        "Blog de viajes de buceo.",
-      tech: ["Next.js", "React", "TypeScript", "Tailwind CSS",],
-      github: "https://github.com/dzulha/v0-blog-de-buceo-web",
-      live: "https://www.pabloezeta.com/",
-      image: "/pabloezetaBlog.webp",
-      category: "fullstack",
-    },
-    {
-    title: "Proyecto Sinfonía Epub",
-      description:
-        "Libro infantil ilustrado y maquetado con Sígil y usando Adobe InDesign.",
-      tech: ["HTML", "CSS", "Sígil", "Amazon KDP"],
-      github: "",
-      live: "https://www.amazon.com.mx/Sinfon%C3%ADa-Spanish-Marta-Watts/dp/B0D77R7W6S?__mk_es_MX=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=D0L36TFQTBUE&dib=eyJ2IjoiMSJ9.czKh8lYEP8D5KQiTHcrRGg.YiGr4OhOsLXQnxIUqb8LU-S6LXog8-covrH1Zy2ttSA&dib_tag=se&keywords=sinfonia+marta+watts&qid=1760558574&sprefix=sinfonia+marta+watts%2Caps%2C214&sr=8-1&ufe=app_do%3Aamzn1.fos.de93fa6a-174c-4df7-be7c-5bc8e9c5a71b",
-      image: "/SinfoniaEpub.png?height=200&width=400",
-      category: "fullstack",
-    },
-      {
-    title: "Marta Watts",
-      description:
-      "Pagina de escritora idependietnte para promocionar sus Libros.",
-      tech: ["WordPress", "Elemetor", "Amazon KDP",],
-      github: "https://github.com/PabloEzeta/Proyecto-Sinfonia",
-      live: "https://amazon.com/dp/B0C3969188",
-      image: "/martawatts.webp",
-      category: "fullstack",
-    },
-    {
-    title: "ABSIMO",
-      description:
-        "Centro de buceo en CDMX. Diseño de identidad visual y sitio web.",
-      tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com/dzulha/ABISMO",
-      live: "https://amazon.com/dp/B0C3969188",
-      image: "/abismo (2).png?height=200&width=400",
-      category: "ux",
-    },
-      {
-    title: "Cetus Repaeir",
-      description:
-        "Pagina para promocionar reparacion de equipo de buceo.",
-      tech: ["WordPress", "Elemetor", "Amazon KDP"],
-            github: "https://github.com/dzulha/v0-blog-de-buceo-web",
+  
+  // High-level category filter
+  const [categoryFilter, setCategoryFilter] = useState<ProjectCategory>("all")
+  
+  // Specific tag filtering
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
 
-      live: "https://cetusscubarepair.com/",
-      image: "/Cetus reapeir.png?height=200&width=400",
-      category: "ux",
-    },
-    {
-      title: "Rediseño Web para Cetus Dive Center",
-      description:
-        "Rediseño de un sitio web obsoleto en Magento a dos sitios funcionales en WordPress. Se integró Calendly y MailerLite para reservas y marketing.",
-      tech: ["WordPress", "Calendly", "MailerLite", "CSS"],
-            github: "https://github.com/dzulha/v0-blog-de-buceo-web",
-
-      live: "https://cetusscubacenter.com",
-      image: "/Cetus.webp?height=200&width=400",
-      category: "fullstack",
-    },
-    {
-      title: "Wild Sites (Estudio Freelance)",
-      description:
-        "Creación de mi propio estudio de diseño freelance. La página web sirve como portafolio y canal de captación de clientes, con implementación básica de SEO.",
-      tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com/PabloEzeta/Wild-Sites",
-      live: "https://wild-sites.com",
-      image: "/wildsites.webp",
-      category: "fullstack",
-    },
-    {
-      title: "E-commerce para xMartaja",
-      description:
-        "Prototipo de tienda en línea para una joyera, mostrando su portafolio y permitiendo la venta de piezas. Desarrollado con WordPress y WooCommerce.",
-      tech: ["WordPress", "WooCommerce", "e-commerce"],
-      github: "https://github.com/PabloEzeta/Proyecto-Eduardo",
-      live: "https://xmartaja.com",
-      image: "/xMartaja.png?height=200&width=400",
-      category: "fullstack",
-    },
-    {
-      title: "Español con edu",
-      description:
-        "Desarrollo de identidad visual y materiales de marketing para un profesor de español enfocado en el mercado chino, incluyendo tarjetas de presentación y edición de video.",
-      tech: ["Figma", "Next.js", "React", "TypeScript", "Tailwind CSS", "Diseño Gráfico"],
-      github: "https://github.com/dzulha/Espa-olconEdu",
-      live: "https://espa-olcon-kgj5zuvqe-pablos-projects-779e2d69.vercel.app/",
-      image: "/edu.webp",
-      category: "fullstack",
-    },
-      {
-      title: "Jeniffer Cruz",
-      description:
-        "Portafolio porfesional de una diseladora instrucional",
-      tech: ["Figma", "Next.js", "React", "TypeScript", "Tailwind CSS", "Diseño Gráfico"],
-      github: "https://github.com/dzulha/Jeniffer-instructional",
-      live: "https://www.jeniffercruz.com/",
-      image: "/jeniffer.webp",
-      category: "fullstack",
-    },
-    {
-      title: "REHTM (Red de Historia del Turismo)",
-      description:
-        "Diseño de un sitio web en WordPress.com para la Red de Estudios de Historia del Turismo en México (REHTM), creando una plataforma accesible y económica para eventos y publicaciones.",
-      tech: ["WordPress.com", "Canva", "Diseño Web"],
-      github: "https://github.com/PabloEzeta/REHTM",
-      live: "https://rehtm.com",
-      image: "/Rhtm.png",
-      category: "fullstack",
-    },
-      {
-      title: "Huellas en el delantar",
-      description:
-        "Pagina para pormocionar reposteria artesanal",
-      tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com/dzulha/reposteria-website",
-      live: "https://reposteria-website.vercel.app/",
-      image: "/karen.webp",
-      category: "fullstack",
-    },
-    {
-      title: "Xplora",
-      description:
-        "Proyecto final del bootcamp de Latam-Ft-5. Aplicacion para planear viajes en grupo.",
-      tech: ["React", "JS",],
-      github: "https://github.com/dzulha/Xplore-Proyecto-final-latam-ft-5",
-      live: "",
-      image: "/xplora.webp",
-      category: "fullstack",
-    },
-    {
-      title: "Xplora",
-      description:
-        "Planacion UX y UI para una app de viajes",
-      tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com/dzulha/Xplore-Proyecto-final-latam-ft-5",
-      live: "https://miro.com/welcomeonboard/WG82QU5GWTJLamtITkZQOGIxaGk2QVhxTUUvU2YrYUxGWHZBM05VU0hLS3V5eXFjSWx4R1F4OGJZaEc3a0kyRFg4dUhaYk9TSXhuSmpGNmtrZGMxUDF1VTUraVdLOWhIMWh2emdndk1KUkZuR2xQb3NUcjArVGlQRitZamNyTGJQdGo1ZEV3bUdPQWRZUHQzSGl6V2NBPT0hdjE=?share_link_id=596591259829",
-      image: "/uxXplora.webp",
-      category: "UX & UI",
-    },
-  ];
-
-  // Filter state for Projects section
-  const [filter, setFilter] = useState<"all" | "fullstack" | "ux">("all")
+  // Get all unique tags from the current displayed projects (based on category)
+  // to avoid showing tags that yield 0 results.
+  const availableTags = useMemo(() => {
+    const projectsInCategory = categoryFilter === "all" 
+      ? projects 
+      : projects.filter(p => p.categories.includes(categoryFilter));
+      
+    const tags = new Set<string>();
+    projectsInCategory.forEach(p => {
+        p.tags?.forEach(t => tags.add(t));
+        // Also add tech to tags for filtering if desired, or keep separate
+        // p.tech.forEach(t => tags.add(t)); 
+    });
+    return Array.from(tags).sort();
+  }, [categoryFilter]);
 
   const filteredProjects = useMemo(() => {
-    if (filter === "all") return projects
-    return projects.filter((p) => p.category === filter)
-  }, [filter, projects])
+    let result = projects
+
+    // 1. Filter by Category
+    if (categoryFilter !== "all") {
+      result = result.filter((p) => p.categories.includes(categoryFilter))
+    }
+
+    // 2. Filter by Selected Tags (Project must have ALL selected tags or ANY? ANY is usually better for casual browsing, ALL is better for specific search)
+    // Let's go with "Has at least one of the selected tags" if tags are selected.
+    if (selectedTags.length > 0) {
+      result = result.filter(p => 
+        selectedTags.some(tag => p.tags?.includes(tag))
+      )
+    }
+
+    return result
+  }, [categoryFilter, selectedTags])
 
 
+  const toggleTag = (tag: string) => {
+    setSelectedTags(prev => 
+        prev.includes(tag) 
+            ? prev.filter(t => t !== tag) 
+            : [...prev, tag]
+    )
+  }
 
+  const clearFilters = () => {
+      setCategoryFilter("all");
+      setSelectedTags([]);
+  }
 
   const skills = [
-    { name: "Frontend Development", icon: Code, description: "React, Next.js, JavaScript , boostrap" },
-    { name: "Backend Development", icon: Server, description: "PostgreSQL, MongoDB" },
-    { name: "UX/UI Design", icon: Palette, description: "Figma, Adobe XD, User Research, Prototyping" },
-    { name: "WordPress Development", icon: Globe, description: "Custom themes, WooCommerce" },
-    { name: "Database Design", icon: Database, description: "PostgreSQL, MongoDB, SQL" },
-    { name: "Mobile Development", icon: Smartphone, description: "React Native,"},
+    { name: "Frontend Development", icon: Code, description: "JavaScript (React.js), HTML5, CSS3, Tailwind" },
+    { name: "Backend Development", icon: Server, description: "Python (Flask), C#, Restful APIs, JWT" },
+    { name: "UX/UI & Editorial Design", icon: Palette, description: "Figma, Adobe InDesign, Adobe Photoshop" },
+    { name: "CMS & Platforms", icon: Globe, description: "WordPress, Wix, Odoo, Elementor" },
+    { name: "Database & Cloud", icon: Database, description: "PostgreSQL, SQL, AWS, GitHub" },
+    { name: "Product Strategy", icon: Smartphone, description: "SEO, CRM, Automation (n8n)" },
   ]
 
   return (
@@ -203,45 +104,60 @@ export default function Component() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6">
-              Full Stack Developer &<span className="text-blue-400 block">UX/UI Designer</span>
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              I create beautiful, functional web applications and user experiences that help businesses grow.
-              Specializing in React, Node.js, and WordPress development with a focus on clean, minimalist design.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* Agenda una llamada: abre una URL externa (Calendly u otro) en nueva pestaña */}
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-                <a
-                  href="https://calendar.notion.so/meet/pabloezetawatts/h7m42i2j" /* reemplaza por tu enlace de agenda */
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
-                >
-                  Agenda una llamada
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              </Button>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1 relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-gray-900/50 p-2">
+                <Image
+                  src="/xplora.webp"
+                  alt="Projects Showcase"
+                  width={600}
+                  height={500}
+                  className="rounded-xl object-cover w-full h-auto opacity-90 hover:opacity-100 transition-opacity duration-500"
+                />
+              </div>
+            </div>
+            <div className="order-1 lg:order-2 text-left">
+              <div className="inline-block mb-4 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium">
+                Over 15 Years of Experience
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                Product-Led Full Stack Developer <span className="text-blue-400 block">& UX/UI Designer</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl">
+                I bridge the gap between design, business strategy, and robust engineering. I build scalable digital products that drive growth and deliver exceptional user experiences.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-start">
+                {/* Agenda una llamada: abre una URL externa (Calendly u otro) en nueva pestaña */}
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+                  <a
+                    href="https://calendar.notion.so/meet/pabloezetawatts/h7m42i2j" /* reemplaza por tu enlace de agenda */
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    Agenda una llamada
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </Button>
 
-              {/* Descargar CV: coloca el PDF en /public (por ejemplo /Pablo_Ezeta_CV.pdf) */}
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-gray-600 text-gray-300 hover:bg-gray-800 bg-transparent"
-              >
-                <a
-                  href="/Pablo-Alfonso-Ezeta-Watts-CV.pdf"
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+                {/* Descargar CV: coloca el PDF en /public (por ejemplo /Pablo_Ezeta_CV.pdf) */}
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-gray-600 text-gray-300 hover:bg-gray-800 bg-transparent"
                 >
-                  Descargar CV
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              </Button>
+                  <a
+                    href="/Pablo-Alfonso-Ezeta-Watts-CV.pdf"
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    Descargar CV
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -254,18 +170,13 @@ export default function Component() {
             <div>
               <h2 className="text-3xl font-bold text-white mb-6">About Me</h2>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                I'm a passionate full-stack developer and UX/UI designer with over 5 years of experience creating
-                digital solutions that make a difference. I specialize in building scalable web applications using
-                modern technologies like React, Next.js, and Node.js.
+                As a Product-Led Full Stack Developer and UX/UI Designer with over 15 years of experience, my background uniquely blends Marketing, high-level Design, and Full-Stack Engineering.
               </p>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                My design background allows me to bridge the gap between technical implementation and user experience,
-                ensuring that every project not only functions flawlessly but also provides an intuitive and engaging
-                user experience.
+                I specialize in Python (Flask) and React ecosystems, building secure, full-scale digital solutions like the Xplora Tour Management Platform. Prior to this, I founded and scaled ABISMO, expanding a diving school for 200+ clients across multiple markets by leveraging custom CRM implementations, SEO/SEM strategies, and product strategy.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                When I'm not coding, I'm exploring new technologies, contributing to open-source projects, or helping
-                businesses transform their digital presence through custom WordPress solutions.
+                Through a product-focused approach, I integrate robust backend architectures (PostgreSQL, APIs, AWS) with visually compelling frontends, ensuring every application meets both core business objectives and user needs. My goal is to deliver technical excellence intertwined with measurable business value.
               </p>
             </div>
             <div className="relative">
@@ -321,47 +232,109 @@ export default function Component() {
               A selection of recent projects showcasing my full-stack development and design capabilities
             </p>
           </div>
-          <div className="mb-8 flex justify-center">
-            <div className="inline-flex rounded-lg bg-gray-800/40 p-1">
-              <button
-                onClick={() => setFilter("all")}
-                className={`px-4 py-2 rounded-md text-sm font-medium ${filter === "all" ? "bg-blue-600 text-white" : "text-gray-300 hover:bg-gray-700"}`}
-              >
-                All
-              </button>
-              <button
-                onClick={() => setFilter("fullstack")}
-                className={`px-4 py-2 rounded-md text-sm font-medium ${filter === "fullstack" ? "bg-blue-600 text-white" : "text-gray-300 hover:bg-gray-700"}`}
-              >
-                Full Stack
-              </button>
-              <button
-                onClick={() => setFilter("ux")}
-                className={`px-4 py-2 rounded-md text-sm font-medium ${filter === "ux" ? "bg-blue-600 text-white" : "text-gray-300 hover:bg-gray-700"}`}
-              >
-                UX
-              </button>
-            </div>
+          
+          {/* Filters */}
+          <div className="mb-12 space-y-4">
+              {/* Main Categories */}
+              <div className="flex justify-center">
+                <div className="inline-flex flex-wrap justify-center gap-2 rounded-lg bg-gray-800/40 p-2">
+                  <button
+                    onClick={() => { setCategoryFilter("all"); setSelectedTags([]); }}
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${categoryFilter === "all" ? "bg-blue-600 text-white shadow-lg" : "text-gray-300 hover:bg-gray-700 hover:text-white"}`}
+                  >
+                    Todos
+                  </button>
+                  <button
+                    onClick={() => { setCategoryFilter("Desarrollo web y diseño web"); setSelectedTags([]); }}
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${categoryFilter === "Desarrollo web y diseño web" ? "bg-blue-600 text-white shadow-lg" : "text-gray-300 hover:bg-gray-700 hover:text-white"}`}
+                  >
+                    Desarrollo Web & UX
+                  </button>
+                  <button
+                    onClick={() => { setCategoryFilter("Diseño editorial maquetado"); setSelectedTags([]); }}
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${categoryFilter === "Diseño editorial maquetado" ? "bg-blue-600 text-white shadow-lg" : "text-gray-300 hover:bg-gray-700 hover:text-white"}`}
+                  >
+                    Editorial
+                  </button>
+                  <button
+                    onClick={() => { setCategoryFilter("Desarrollo de epub"); setSelectedTags([]); }}
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${categoryFilter === "Desarrollo de epub" ? "bg-blue-600 text-white shadow-lg" : "text-gray-300 hover:bg-gray-700 hover:text-white"}`}
+                  >
+                    Epub
+                  </button>
+                  <button
+                    onClick={() => { setCategoryFilter("Diseño de portada"); setSelectedTags([]); }}
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${categoryFilter === "Diseño de portada" ? "bg-blue-600 text-white shadow-lg" : "text-gray-300 hover:bg-gray-700 hover:text-white"}`}
+                  >
+                    Portadas
+                  </button>
+                  <button
+                    onClick={() => { setCategoryFilter("Proyectos personales"); setSelectedTags([]); }}
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${categoryFilter === "Proyectos personales" ? "bg-blue-600 text-white shadow-lg" : "text-gray-300 hover:bg-gray-700 hover:text-white"}`}
+                  >
+                    Personales
+                  </button>
+                </div>
+              </div>
+
+              {/* Tag Filters */}
+              {availableTags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 justify-center max-w-3xl mx-auto animate-in fade-in slide-in-from-top-2">
+                       <div className="flex items-center text-sm text-gray-500 mr-2">
+                           <Filter className="w-4 h-4 mr-1"/> Filter by:
+                       </div>
+                       {availableTags.slice(0, 10).map(tag => (
+                           <button
+                                key={tag}
+                                onClick={() => toggleTag(tag)}
+                                className={`px-3 py-1 rounded-full text-xs border transition-colors ${
+                                    selectedTags.includes(tag)
+                                        ? "bg-blue-500/20 border-blue-500 text-blue-300"
+                                        : "bg-gray-800 border-gray-700 text-gray-400 hover:border-gray-500"
+                                }`}
+                           >
+                               {tag}
+                           </button>
+                       ))}
+                       {selectedTags.length > 0 && (
+                            <button onClick={() => setSelectedTags([])} className="px-3 py-1 rounded-full text-xs text-red-400 hover:text-red-300 flex items-center gap-1">
+                                <X className="w-3 h-3" /> Clear
+                            </button>
+                       )}
+                  </div>
+              )}
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {filteredProjects.map((project, index) => (
               <Card
                 key={index}
-                className="bg-gray-800 border-gray-700 overflow-hidden hover:bg-gray-750 transition-colors"
+                className="bg-gray-800 border-gray-700 overflow-hidden hover:bg-gray-750 transition-all hover:-translate-y-1 hover:shadow-xl group"
               >
                 <div className="aspect-video relative overflow-hidden">
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
                   <Image
                     src={project.image || "/Pablo Ezeta.png"}
                     alt={project.title}
                     width={400}
                     height={200}
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
                   />
+                  {/* Category Badge Overlay */}
+                  <div className="absolute top-4 right-4 z-20 flex flex-col gap-2 items-end">
+                      {project.categories.slice(0, 2).map((cat, catIdx) => (
+                          <Badge key={catIdx} className={`${cat === 'Desarrollo web y diseño web' ? 'bg-purple-500 hover:bg-purple-600' : 'bg-blue-500 hover:bg-blue-600'} text-white border-0 shadow-md`}>
+                              {cat}
+                          </Badge>
+                      ))}
+                      {project.categories.length > 2 && (
+                          <Badge className="bg-gray-800 text-white border-0 shadow-md">+{project.categories.length - 2}</Badge>
+                      )}
+                  </div>
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-white">{project.title}</CardTitle>
-                  <CardDescription className="text-gray-300">{project.description}</CardDescription>
+                  <CardTitle className="text-white group-hover:text-blue-400 transition-colors">{project.title}</CardTitle>
+                  <CardDescription className="text-gray-300 line-clamp-2">{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -371,28 +344,56 @@ export default function Component() {
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex gap-4">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="border-gray-600 text-gray-300 hover:bg-gray-700 bg-transparent"
-                    >
-                      <Link href={project.github} className="flex items-center gap-2">
-                        <Github className="w-4 h-4" />
-                        Code
-                      </Link>
-                    </Button>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      <Link href={project.live} className="flex items-center gap-2">
-                        <ExternalLink className="w-4 h-4" />
-                        Live Demo
-                      </Link>
-                    </Button>
+                  <div className="flex gap-4 mt-auto">
+                    {/* Dynamic Buttons based on project configuration */}
+                    <div className="flex flex-wrap gap-2 w-full">
+                      {project.caseStudy && (
+                          <Button size="sm" className="bg-blue-600 hover:bg-blue-700 flex-1 min-w-[120px]">
+                              <Link href={`/ux/${project.slug}`} className="flex items-center justify-center gap-2 w-full">
+                                  <Palette className="w-4 h-4" />
+                                  Case Study
+                              </Link>
+                          </Button>
+                      )}
+                      
+                      {(!project.caseStudy || project.live) && project.live && (
+                          <Button 
+                            variant={project.caseStudy ? "outline" : "default"}
+                            size="sm" 
+                            className={`flex-1 min-w-[120px] ${project.caseStudy ? 'border-gray-600 text-gray-300 hover:bg-gray-700 bg-transparent' : 'bg-blue-600 hover:bg-blue-700'}`}
+                          >
+                              <Link href={project.live} target="_blank" className="flex items-center justify-center gap-2 w-full">
+                                  <ExternalLink className="w-4 h-4" />
+                                  Live Demo
+                              </Link>
+                          </Button>
+                      )}
+                      
+                      {project.github && (
+                          <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-gray-600 text-gray-300 hover:bg-gray-700 bg-transparent flex-1 min-w-[120px]"
+                          >
+                          <Link href={project.github} target="_blank" className="flex items-center justify-center gap-2 w-full">
+                              <Github className="w-4 h-4" />
+                              Code
+                          </Link>
+                          </Button>
+                      )}
+                    </div>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
+          
+          {filteredProjects.length === 0 && (
+              <div className="text-center py-20">
+                  <p className="text-gray-400 text-lg">No projects found with the selected filters.</p>
+                  <Button variant="link" onClick={clearFilters} className="text-blue-400">Clear all filters</Button>
+              </div>
+          )}
         </div>
       </section>
 
