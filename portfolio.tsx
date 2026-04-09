@@ -8,9 +8,10 @@ import { Separator } from "@/components/ui/separator"
 import { Github, ExternalLink, Mail, Linkedin, Code, Palette, Globe, Database, Server, Smartphone, Filter, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { projects, type ProjectCategory } from "@/lib/projects"
+import { type Project, type ProjectCategory } from "@/lib/projects"
+import { type Locale } from "@/lib/i18n"
 
-export default function Component() {
+export default function Component({ lang, dict, projects }: { lang: Locale, dict: any, projects: Project[] }) {
   
   // High-level category filter
   const [categoryFilter, setCategoryFilter] = useState<ProjectCategory>("all")
@@ -349,7 +350,7 @@ export default function Component() {
                     <div className="flex flex-wrap gap-2 w-full">
                       {project.caseStudy && (
                           <Button size="sm" className="bg-blue-600 hover:bg-blue-700 flex-1 min-w-[120px]">
-                              <Link href={`/ux/${project.slug}`} className="flex items-center justify-center gap-2 w-full">
+                              <Link href={`/${lang}/ux/${project.slug}`} className="flex items-center justify-center gap-2 w-full">
                                   <Palette className="w-4 h-4" />
                                   Case Study
                               </Link>

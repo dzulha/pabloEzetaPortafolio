@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "experienceBg": "Over 15 Years of Experience",
+    "title1": "Product-Led Full Stack Developer",
+    "title2": "& UX/UI Designer",
+    "subtitle": "I bridge the gap between design, business strategy, and robust engineering. I build scalable digital products that drive growth and deliver exceptional user experiences.",
+    "ctaCall": "Schedule a call",
+    "ctaDownload": "Download CV"
+  },
+  "about": {
+    "title": "About Me",
+    "p1": "As a Product-Led Full Stack Developer and UX/UI Designer with over 15 years of experience, my background uniquely blends Marketing, high-level Design, and Full-Stack Engineering.",
+    "p2": "I specialize in Python (Flask) and React ecosystems, building secure, full-scale digital solutions like the Xplora Tour Management Platform. Prior to this, I founded and scaled ABISMO, expanding a diving school for 200+ clients across multiple markets by leveraging custom CRM implementations, SEO/SEM strategies, and product strategy.",
+    "p3": "Through a product-focused approach, I integrate robust backend architectures (PostgreSQL, APIs, AWS) with visually compelling frontends, ensuring every application meets both core business objectives and user needs. My goal is to deliver technical excellence intertwined with measurable business value."
+  },
+  "skills": {
+    "title": "Skills & Services",
+    "subtitle": "I offer comprehensive development and design services to help bring your ideas to life.",
+    "frontend": { "title": "Frontend Development", "desc": "JavaScript (React.js), HTML5, CSS3, Tailwind" },
+    "backend": { "title": "Backend Development", "desc": "Python (Flask), C#, Restful APIs, JWT" },
+    "ux": { "title": "UX/UI & Editorial Design", "desc": "Figma, Adobe InDesign, Adobe Photoshop" },
+    "cms": { "title": "CMS & Platforms", "desc": "WordPress, Wix, Odoo, Elementor" },
+    "db": { "title": "Database & Cloud", "desc": "PostgreSQL, SQL, AWS, GitHub" },
+    "strategy": { "title": "Product Strategy", "desc": "SEO, CRM, Automation (n8n)" }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "A selection of recent projects showcasing my full-stack development and design capabilities.",
+    "filters": {
+      "all": "All",
+      "web": "Web Dev & UX",
+      "editorial": "Editorial",
+      "epub": "Epub",
+      "covers": "Covers",
+      "personal": "Personal"
+    },
+    "filterBy": "Filter by:",
+    "clearAll": "Clear filters",
+    "noProjects": "No projects found with the selected filters.",
+    "buttons": {
+      "caseStudy": "Case Study",
+      "liveDemo": "Live Demo",
+      "code": "Code"
+    }
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "subtitle": "Ready to bring your project to life? I'm available for freelance work and full-time opportunities. Let's discuss how I can help you achieve your goals."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "built": "Built with React, Next.js & Tailwind CSS."
+  }
+}

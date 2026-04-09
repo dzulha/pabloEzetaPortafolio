@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "experienceBg": "Más de 15 Años de Experiencia",
+    "title1": "Product-Led Full Stack Developer",
+    "title2": "& UX/UI Designer",
+    "subtitle": "Cierro la brecha entre el diseño, la estrategia comercial y la ingeniería robusta. Construyo productos digitales escalables que impulsan el crecimiento y ofrecen experiencias de usuario excepcionales.",
+    "ctaCall": "Agenda una llamada",
+    "ctaDownload": "Descargar CV"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "p1": "Como Product-Led Full Stack Developer y Diseñador UX/UI con más de 15 años de experiencia, mi formación combina de manera única el Marketing, Diseño de alto nivel y la Ingeniería Full-Stack.",
+    "p2": "Me especializo en ecosistemas Python (Flask) y React, creando soluciones digitales seguras a gran escala como la Plataforma de Gestión de Tours Xplora. Antes de esto, fundé y escalé ABISMO, expandiendo una escuela de buceo para más de 200 clientes mediante integraciones CRM propias, SEO/SEM y estrategia de producto.",
+    "p3": "A través de un enfoque centrado en producto, integro arquitecturas backend sólidas (PostgreSQL, APIs, AWS) con frontends visualmente atractivos. Mi objetivo es entregar excelencia tecnológica siempre respaldada por valor comercial real."
+  },
+  "skills": {
+    "title": "Habilidades & Servicios",
+    "subtitle": "Ofrezco desarrollo integral y servicios de diseño para hacer realidad tus ideas.",
+    "frontend": { "title": "Desarrollo Frontend", "desc": "JavaScript (React.js), HTML5, CSS3, Tailwind" },
+    "backend": { "title": "Desarrollo Backend", "desc": "Python (Flask), C#, APIs Restful, JWT" },
+    "ux": { "title": "Diseño UX/UI & Editorial", "desc": "Figma, Adobe InDesign, Adobe Photoshop" },
+    "cms": { "title": "CMS y Plataformas", "desc": "WordPress, Wix, Odoo, Elementor" },
+    "db": { "title": "Bases de Datos & Cloud", "desc": "PostgreSQL, SQL, AWS, GitHub" },
+    "strategy": { "title": "Estrategia de Producto", "desc": "SEO, CRM, Automatizaciones (n8n)" }
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "subtitle": "Una selección de mis proyectos recientes mostrando mis capacidades de desarrollo full-stack, UX/UI y diseño editorial.",
+    "filters": {
+      "all": "Todos",
+      "web": "Desarrollo Web & UX",
+      "editorial": "Editorial",
+      "epub": "Epub",
+      "covers": "Portadas",
+      "personal": "Personales"
+    },
+    "filterBy": "Filtros activos:",
+    "clearAll": "Borrar filtros",
+    "noProjects": "No se encontraron proyectos con los filtros actuales.",
+    "buttons": {
+      "caseStudy": "Case Study",
+      "liveDemo": "Ver Demo",
+      "code": "Ver Código"
+    }
+  },
+  "contact": {
+    "title": "Trabajemos Juntos",
+    "subtitle": "¿Listo para darle vida a tu proyecto? Estoy disponible para oportunidades freelance o posiciones de tiempo completo interesadas en Product Design."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "built": "Construido con React, Next.js y Tailwind CSS."
+  }
+}
