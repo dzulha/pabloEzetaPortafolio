@@ -4,10 +4,11 @@ import { getProjects } from '@/lib/projects'
 import type { Locale } from '@/lib/i18n'
 
 export default async function Page({
-  params: { lang },
+  params,
 }: {
-  params: { lang: Locale }
+  params: Promise<{ lang: Locale }>
 }) {
+  const { lang } = await params
   const dictionary = await getDictionary(lang)
   const projectsData = await getProjects(lang)
 

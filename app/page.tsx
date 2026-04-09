@@ -1,5 +1,5 @@
-import Component from "../portfolio"
+import { redirect } from 'next/navigation'
 
 export default function Page() {
-  return <Component />
+  redirect('/en')
 }
